@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             x:Class="Lijer.Popup.PrecioView">
+    <AbsoluteLayout
+        HorizontalOptions="Center"
+        VerticalOptions="Center">
+        <Frame
+    x:Name="FrameContainer"
+    Margin="15"
+    HorizontalOptions="Center"
+    BackgroundColor="White">
+            <StackLayout
+        IsClippedToBounds="True"
+        Padding="10, 5"
+        Spacing="3">
+                <!--<Image HorizontalOptions="Center" 
+                       x:Name="Dice" Margin="10" 
+                       HeightRequest="150"  
+                       WidthRequest="150" 
+                       Source="{Binding DiceSource}"/>-->
+
+                <Button Margin="10, 5" 
+                    
+                    HorizontalOptions="Fill" 
+                    x:Name="ReRoll" 
+                    Text="Re-Roll">
+                    
+                </Button>
+            </StackLayout>
+        </Frame>
+
+    </AbsoluteLayout>
+</pages:PopupPage>

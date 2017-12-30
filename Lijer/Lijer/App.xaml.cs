@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Xamarin.Forms;
 
 namespace Lijer
@@ -13,8 +12,9 @@ namespace Lijer
 		{
 			InitializeComponent();
 
-			MainPage = new Lijer.MainPage();
-		}
+			MainPage = new NavigationPage(new MainPage());
+          
+        }
 
 		protected override void OnStart ()
 		{

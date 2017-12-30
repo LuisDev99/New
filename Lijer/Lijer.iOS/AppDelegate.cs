@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using Xamarin.Forms;
 
 namespace Lijer.iOS
 {
@@ -22,9 +23,12 @@ namespace Lijer.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            //Rg.Plugins.Popup.Popup.Init();
+            //Rg.Plugins.Popup.Popup.Init();
             global::Xamarin.Forms.Forms.Init();
+      
             LoadApplication(new App());
-
+           
             return base.FinishedLaunching(app, options);
         }
     }

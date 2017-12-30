@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+
 namespace Lijer.UWP
 {
     /// <summary>
@@ -51,12 +52,12 @@ namespace Lijer.UWP
                 rootFrame = new Frame();
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
-
+                //Rg.Plugins.Popup.Popup.Init();
                 Xamarin.Forms.Forms.Init(e);
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
-                    //TODO: Load state from previously suspended application
+                    //TODO: Load state from previously suspended application <--IDK WTF IS THIS
                 }
 
                 // Place the frame in the current Window
@@ -94,7 +95,7 @@ namespace Lijer.UWP
         private void OnSuspending(object sender, SuspendingEventArgs e)
         {
             var deferral = e.SuspendingOperation.GetDeferral();
-            //TODO: Save application state and stop any background activity
+            //TODO: Save application state and stop any background activity  <-- IDK WTF IS THIS EIHTER
             deferral.Complete();
         }
     }

@@ -104,6 +104,9 @@
     <None Include="Lijer.UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Assets\t7.jpg" />
+    <AndroidResource Include="Assets\github_octocat.png" />
+    <AndroidResource Include="Assets\close_circle_button.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-100.png" />
     <Content Include="Assets\LockScreenLogo.scale-125.png" />
@@ -148,8 +151,11 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Rg.Plugins.Popup">
+      <Version>1.0.4</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.121934" />
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.1"/>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Lijer\Lijer.csproj">
