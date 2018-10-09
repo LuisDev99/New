@@ -27,12 +27,12 @@ namespace Lijer
 		{
 			InitializeComponent ();
 
-            //Desaparecer las listas (se puede hacer directamente en el xaml ! isVisible = false ! )
-            ListaRecomendaciones.IsVisible = false;
-            ListaMedicinaAPI.IsVisible = false;         
+            /*Desaparecer las listas (se puede hacer directamente en el xaml ! isVisible = false ! */
+            RecomendationList.IsVisible = false;
+            MedicinesList.IsVisible = false;         
 		}
 
-        #region variables
+        #region variables de prueba
         public static string medicinaSeleccionada = null;
         List<string> medicinasSugeridas = new List<String>
         {
@@ -58,19 +58,31 @@ namespace Lijer
         #endregion Documentacion de la funcion
         private void onSearchTypingEvent(object sender, EventArgs e)
         {
-            var medicinaBuscada = searchBar.Text;
-            var medicinasEncontradas = Enumerable.Empty<string>();
-            ListaMedicinaAPI.IsVisible = false;
+            var searchedMedicine = searchBar.Text;
+            var medicinesFound = Enumerable.Empty<string>();
+            MedicinesList.IsVisible = false;
 
-            if(medicinaBuscada.Length >= 1)
+            if(searchedMedicine.Length >= 1)
             {
-                medicinasEncontradas = medicinasSugeridas.Where(respuesta => respuesta.ToLower().Contains(medicinaBuscada.ToLower()));
-                ListaRecomendaciones.ItemsSource = medicinasEncontradas;
-                ListaRecomendaciones.IsVisible = true;
+                //TODO: Instead of using the list(medicinasSugeridas) the list should be brought from the api like shown below in the example
+
+                /* 
+                 * Basic example of how this code should be when the api is up and ready
+                 * List<Productos> RecommendedProducts = API.GetRecommendedMedicines(searchedMedicine); 
+                 * foreach(Producto product in medicinesFound)
+                 *     medicinesFound.add(product.Title);
+                 * RecomendationList.ItemsSource = medicinesFound;
+                 * RecomendationList.IsVisible = true; 
+                 
+                 */
+
+                medicinesFound = medicinasSugeridas.Where(respuesta => respuesta.ToLower().Contains(searchedMedicine.ToLower()));
+                RecomendationList.ItemsSource = medicinesFound;
+                RecomendationList.IsVisible = true;
             }
             else
             {
-                ListaRecomendaciones.IsVisible = false;
+                RecomendationList.IsVisible = false;
             }
          
         }
@@ -87,7 +99,7 @@ namespace Lijer
         {
             var searchBar = sender as SearchBar;
             var producto = searchBar.Text;
-            ListaRecomendaciones.IsVisible = false;
+            RecomendationList.IsVisible = false;
             requestAPI(producto);
 
             await DisplayAlert("Buscando producto....", producto, "OK");
@@ -107,7 +119,7 @@ namespace Lijer
             requestAPI(medicinaSeleccionada); // <-- Idea, just leave it there
             searchBar.Text = medicinaSeleccionada;
             var vm = BindingContext as MainViewModel; //Get binded object 
-            ListaRecomendaciones.IsVisible = false;
+            RecomendationList.IsVisible = false;
 
             switch (medicinaSeleccionada)
             {
@@ -121,7 +133,7 @@ namespace Lijer
                     vm.updateList(jeringas);
                     break;
             }
-            ListaMedicinaAPI.IsVisible = true;
+            MedicinesList.IsVisible = true;
 
             #region ideas comentadas
             //buscarMedicinaAPI(medicinaSeleccionada);
@@ -150,6 +162,7 @@ namespace Lijer
         /// <summary>
         ///     Este evento viene cuando el usuario le da click a la lista que trae el servidor de respuesta
         ///     y abre un menu con tres botones y dependiendo que boton le dio click el usuario tomara una accion esta funcion
+        ///     Esas acciones son abrir otras pantallas.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -167,7 +180,7 @@ namespace Lijer
                     Navigation.PushPopupAsync(new PrecioView());
                     break;
                 case "Por ubicacion":
-                    Navigation.PushPopupAsync(new MyPopupPage());
+                    Navigation.PushPopupAsync(new UbicacionView());
                     break;       
             }       
 
@@ -185,14 +198,14 @@ namespace Lijer
             /*
              *  Primero: Request Server
              *  Segundo: Parse Json
-             *  Tercero: Get All Productos names and make an array
+             *  Tercero: Get All Productos related names and make an array
              *  Cuarto: MainViewModel.updateList(serverArray) para que la listview tenga items del producto buscado
              */
-            
+
+            }
+
+            #endregion funciones
+
         }
-
-        #endregion funciones
-
-    }
 
 }

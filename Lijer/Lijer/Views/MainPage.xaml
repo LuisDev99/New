@@ -3,12 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Lijer"
              x:Class="Lijer.MainPage" 
-             BackgroundImage="t12.jpg"
+             BackgroundImage="t18.jpg"
              NavigationPage.HasNavigationBar="False"
              >
     <ContentPage.Content>
         <Button VerticalOptions="End"
                 Text="Buscar Medicina" 
+                AutomationId="GoSearchPage"
                 TextColor="White"
                 Clicked="OpenWebCommand"
                 BackgroundColor="Transparent"

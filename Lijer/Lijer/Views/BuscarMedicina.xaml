@@ -13,11 +13,13 @@
         <SearchBar x:Name="searchBar"
                        Placeholder="Tocame para Buscar!"
                        SearchButtonPressed="onSearchButtonClick"
+                   AutomationId="searchBar"
+                   HeightRequest="50"
                        TextChanged="onSearchTypingEvent"/>
-        <ListView x:Name="ListaRecomendaciones" ItemTapped="onItemClickEvent" BackgroundColor="Silver" />
+        <ListView x:Name="RecomendationList" ItemTapped="onItemClickEvent" BackgroundColor="Silver" />
 
 
-        <ListView x:Name ="ListaMedicinaAPI"
+        <ListView x:Name ="MedicinesList"
                   ItemsSource="{Binding Productos}"
                       HasUnevenRows="True"
                       Margin="0, 10"

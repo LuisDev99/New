@@ -16,7 +16,7 @@ namespace Lijer.Popup
 	{
 		public InfoView ()
 		{
-			InitializeComponent ();
+			InitializeComponent();
 		}
 
         public async void onClosePageClick(object sender, EventArgs e)

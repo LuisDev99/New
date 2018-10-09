@@ -26,17 +26,19 @@ namespace Lijer
         private void press(object sender, EventArgs e)
         {
             //Hacer un efecto visual cuando el usuario esta presionando el boton
-            var btn = sender as Button;
+            var btn = sender as Xamarin.Forms.Button;
             btn.TextColor = Color.Gray; //Simular click del boton
-            btn.BorderColor = Color.Gray;
+            btn.BorderColor = Color.White;
+            btn.BackgroundColor = Color.White;
         }
 
         private void release(object sender, EventArgs e)
         {
             //Hacer un efecto visual cuando el usuario dejo de presionar el boton
-            var btn = sender as Button;
+            var btn = sender as Xamarin.Forms.Button;
             btn.TextColor = Color.White; //Simular cuando ya no hay click
             btn.BorderColor = Color.White;
+            btn.BackgroundColor = Color.Transparent;
         }
 
     }
